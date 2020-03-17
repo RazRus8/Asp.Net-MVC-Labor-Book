@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Add new record</title>
+    <link href="~/Content/CustomStyles.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/CustomScripts/Record.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="d-flex align-items-center min-vh-100">
+        <div class="container mb-5">
+            <div class="card mx-auto pr-3 pl-3" id="card-body" style="width: 65%;">
+                <div class="card-body">
+                    <div class="text-center text-white">
+                        <h2 class="mt-3 mb-3">Add new record for:</h2>
+                        <h4>@ViewBag.Data</h4>
+                        <div id="employeeId" hidden>@ViewBag.Id</div>
+                    </div>
+                    <div class="col-lg-12 order-md-1 text-white">
+                        <h4>Fill the forms below</h4>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="ActionEmp">Choose an action</label>
+                                    <select class="custom-select d-block w-100" id="actionEmp" required>
+                                        <option value="0">Action</option>
+                                        <option value="1">Hire</option>
+                                        <option value="2">Promotion</option>
+                                        <option value="3">Transfered</option>
+                                        <option value="4">Dismissal</option>
+                                        <option value="5">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please choose an action.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="Description">Description (Company)</label>
+                                    <textarea class="form-control" id="description"></textarea>
+                                    <div class="invalid-feedback">Valid description is required.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="Position">Position</label>
+                                    <textarea class="form-control" id="position"></textarea>
+                                    <div class="invalid-feedback">Valid position is required.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="ConfirmDocument">Confirm Document</label>
+                                    <textarea class="form-control" id="confirmDocument"></textarea>
+                                    <div class="invalid-feedback">Valid confirm document is required.</div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <button class="btn btn-primary mr-4 mt-2" role="button" id="buttonOk">OK</button>
+                                    <a class="btn btn-primary mr-4 mt-2" onclick="location = 'http://localhost:52482/MainPage/Index';" role="button" id="buttonCancel">Cancel</a>
+                                    <!--<a class="btn btn-primary mr-4 mt-2 disabled" href="#" role="button" aria-disabled="true" tabindex="-1">Delete record</a>-->
+                                </div>
+                            </div>
+                            <div class="mt-5 mb-3 text-center">
+                                <a class="text-muted ">© 2020</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
