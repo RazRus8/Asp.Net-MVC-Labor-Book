@@ -141,9 +141,9 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\CustomScripts\Employee.js" />
+    <Content Include="Scripts\CustomScripts\EmployeeScript.js" />
     <Content Include="Scripts\CustomScripts\MainPageScript.js" />
-    <Content Include="Scripts\CustomScripts\Record.js" />
+    <Content Include="Scripts\CustomScripts\RecordScript.js" />
     <Content Include="Scripts\CustomScripts\SigninPageScript.js" />
     <Content Include="Content\BackGroundTheme.jpg" />
     <Content Include="Scripts\bootstrap.min.js.map" />
