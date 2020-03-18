@@ -53,7 +53,7 @@
         }
     }
 
-    function Request()
+    function SendRequest()
     {
         var day = $("#dayBirth option:selected").val();
         var month = $("#monthBirth option:selected").val();
@@ -91,15 +91,22 @@
         });
     }
 
+    function SetFocus()
+    {
+        $("#firstName").focus();
+    }
+
     $(document).ready(function ()
     {
         DayInitializer();
         MonthInitializer();
         YearInitializer();
 
+        //SetFocus();
+
         $("#buttonOk").click(function ()
         {
-            Request();
+            SendRequest();
         });
     })
 }());
