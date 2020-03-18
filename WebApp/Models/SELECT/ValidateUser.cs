@@ -19,10 +19,30 @@ namespace WebApp.Models.SELECT
                     {
                         return true;
                     }
-                }
 
-                return false;
+                    return false;
+                }
             }
+
+            return false;
+        }
+
+        public static bool Validating(string username, string password)
+        {
+            using (EmployeeContext db = new EmployeeContext())
+            {
+                foreach (SigninUserModel md in db.SigninUsers)
+                {
+                    if (md.Username == username && md.Password == password)
+                    {
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
+
+            return false;
         }
     }
 }
