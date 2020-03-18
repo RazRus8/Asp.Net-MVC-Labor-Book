@@ -19,15 +19,18 @@
                 <div class="card-body">
                     <form method="post" action="/Signin/Validate" id="submitForm">
                         <h3 id="title" class="mt-4 mb-4 text-white">Please sign in</h3>
+                        <div class="mb-3">
+                            <a class="text-white">@ViewBag.Message</a>
+                        </div>
                         <div class="form-group">
                             <label for="inputUsername" class="sr-only">Username</label>
-                            <input type="text" class="form-control" placeholder="Enter Username" id="inputUsername" required />
+                            <input type="text" class="form-control" placeholder="Enter Username" name="username" id="inputUsername" required />
                         </div>
                         <div class="form-group">
                             <label for="inputPassword" class="sr-only">Password</label>
-                            <input type="password" class="form-control" placeholder="Enter Password" id="inputPassword" required />
+                            <input type="password" class="form-control" placeholder="Enter Password" name="password" id="inputPassword" required />
                         </div>
-                        <button class="btn btn-primary btn-lg mt-2 mb-1" type="button" id="submitButton">Sign in</button> <!--type: submit will send request by itself-->
+                        <button class="btn btn-primary btn-lg mt-2 mb-1" type="submit" id="submitButton">Sign in</button>
                         <div class="mt-4">
                             <a class="text-muted">© 2020</a>
                         </div>
