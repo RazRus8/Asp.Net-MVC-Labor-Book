@@ -19,14 +19,15 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public JsonResult Validate(SigninUserModel user)
+        public ActionResult Validate(string username, string password)
         {
-            if (ValidateUser.Validating(user))
+            if (ValidateUser.Validating(username, password))
             {
-                return Json(new { success = true }, JsonRequestBehavior.DenyGet);
+                return RedirectPermanent("/MainPage/Index/");
             }
 
-            return Json(new { success = false }, JsonRequestBehavior.DenyGet);
+            ViewBag.Message = "Incorrect Username or Password";
+            return View("~/Views/Signin/SigninPage.cshtml");
         }
     }
 }

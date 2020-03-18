@@ -23,19 +23,19 @@
                     alert("Incorrect username or password");
                     $("#inputUsername").val("");
                     $("#inputPassword").val("");
+                    SetFocus();
                 }
             }
         });
-    };
+    }
+
+    function SetFocus()
+    {
+        $("#inputUsername").focus();
+    }
 
     $(document).ready(function ()
     {
-        $("#submitButton").click(function ()
-        {
-            //event.preventDefault();
-            //return false;
-
-            SendRequest();
-        });
+        SetFocus();
     });
 }());
