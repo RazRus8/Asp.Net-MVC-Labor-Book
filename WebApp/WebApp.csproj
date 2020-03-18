@@ -125,10 +125,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\LaborBook.mdf" />
-    <Content Include="App_Data\LaborBook_log.ldf">
-      <DependentUpon>LaborBook.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -291,6 +287,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\EditEmployee\" />
   </ItemGroup>
   <ItemGroup>
