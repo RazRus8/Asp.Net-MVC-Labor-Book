@@ -255,6 +255,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBInitializer\DBInitializer.cs" />
     <Compile Include="Models\EmployeeContext.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\EmployeeRecordModel.cs" />
