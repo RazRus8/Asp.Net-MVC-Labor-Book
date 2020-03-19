@@ -64,7 +64,7 @@
             lastname: $("#lastName").val(),
             patronymic: $("#patronymic").val(),
             birthday: new Date(year, month, day),
-            educationLevel: $("#education option:selected").text(),
+            educationLevel: $("#educationLevel option:selected").text(),
             educationDegree: $("#educationDegree").val(),
             registrationDate: new Date()
         };
