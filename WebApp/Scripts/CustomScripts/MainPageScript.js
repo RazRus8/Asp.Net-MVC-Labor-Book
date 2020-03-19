@@ -171,7 +171,35 @@
 
     function EditEmployee()
     {
-        alert("Work in progress!");
+        if ($("#employeeSelect").val() != 0)
+        {
+            var id = { selectedEmployeeId: $("#employeeSelect").val() };
+
+            $.ajax({
+                type: "post",
+                url: "/EditEmployee/Res",
+                data: JSON.stringify(id),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data)
+                {
+                    if (data.success)
+                    {
+                        window.location.href = "/EditEmployee/Index/";
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError)
+                {
+                    alert(xhr.status);
+                    alert(xhr.responseText);
+                    alert(thrownError);
+                }
+            });
+        }
+        else
+        {
+            alert("You should select employee to edit");
+        }
     }
 
     function EditRecord()

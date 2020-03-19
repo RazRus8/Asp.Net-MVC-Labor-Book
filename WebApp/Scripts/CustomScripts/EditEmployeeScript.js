@@ -6,12 +6,7 @@
     {
         for (var i = 1; i < 32; i++)
         {
-            var option = document.createElement("option");
-            var node = document.createTextNode(i);
-            var sel = document.getElementById("dayBirth");
-
-            option.appendChild(node);
-            sel.appendChild(option);
+            $("#dayBirth").append($("<option />").val(i).text(i));
         }
     }
 
@@ -32,11 +27,9 @@
             11: "December"
         };
 
-        var sel = document.getElementById("monthBirth");
-
         for (var index in months)
         {
-            sel.options[sel.options.length] = new Option(months[index], index);
+            $("#monthBirth").append($("<option />").val(index).text(months[index]));
         }
     }
 
@@ -44,22 +37,18 @@
     {
         for (var i = 1950; i < 2002; i++)
         {
-            var option = document.createElement("option");
-            var node = document.createTextNode(i);
-            var sel = document.getElementById("yearBirth");
-
-            option.appendChild(node);
-            sel.appendChild(option);
+            $("#yearBirth").append($("<option />").val(i).text(i));
         }
     }
 
-    function SendRequest()
+    function EditRequest()
     {
         var day = $("#dayBirth option:selected").val();
         var month = $("#monthBirth option:selected").val();
         var year = $("#yearBirth option:selected").val();
 
         var newEmployee = {
+            employeeId: $("#employeeId").text(),
             firstname: $("#firstName").val(),
             lastname: $("#lastName").val(),
             patronymic: $("#patronymic").val(),
@@ -71,8 +60,36 @@
 
         $.ajax({
             type: "post",
-            url: "/AddEmployee/InsertEmployee",
+            url: "/EditEmployee/UpdateEmployee",
             data: JSON.stringify(newEmployee),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (response)
+            {
+                if (response.success)
+                {
+                    window.location.href = "/MainPage/Index";
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError)
+            {
+                alert(xhr.status);
+                alert(xhr.responseText);
+                alert(thrownError);
+            }
+        });
+    }
+
+    function DeleteRequest()
+    {
+        var deleteEmployee = {
+            employeeId: $("#employeeId").text()
+        };
+
+        $.ajax({
+            type: "post",
+            url: "/EditEmployee/DeleteEmployee",
+            data: JSON.stringify(deleteEmployee),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (response)
@@ -106,7 +123,13 @@
 
         $("#buttonOk").click(function ()
         {
-            SendRequest();
+            EditRequest();
+        });
+
+        $("#buttonDelete").click(function ()
+        {
+            DeleteRequest();
+            //alert("Work in progress!");
         });
     })
 }());

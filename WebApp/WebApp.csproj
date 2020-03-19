@@ -137,6 +137,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CustomScripts\EditEmployeeScript.js" />
     <Content Include="Scripts\CustomScripts\EmployeeScript.js" />
     <Content Include="Scripts\CustomScripts\MainPageScript.js" />
     <Content Include="Scripts\CustomScripts\RecordScript.js" />
@@ -252,12 +253,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DBInitializer\DBInitializer.cs" />
+    <Compile Include="Models\DELETE\DeleteData.cs" />
     <Compile Include="Models\EmployeeContext.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\EmployeeRecordModel.cs" />
     <Compile Include="Models\INSERT\InsdertData.cs" />
     <Compile Include="Models\SELECT\ValidateUser.cs" />
     <Compile Include="Models\SigninUserModel.cs" />
+    <Compile Include="Models\UPDATE\UpdateData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +282,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\EditEmployee\EditEmployee.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -288,7 +292,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\EditEmployee\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
