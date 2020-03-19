@@ -102,7 +102,7 @@
         MonthInitializer();
         YearInitializer();
 
-        //SetFocus();
+        SetFocus();
 
         $("#buttonOk").click(function ()
         {
