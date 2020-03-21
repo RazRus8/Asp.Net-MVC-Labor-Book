@@ -16,7 +16,11 @@ namespace WebApp.Models.DBInitializer
                 );
 
             db.Employees.AddOrUpdate(x => x.EmployeeId,
-                new EmployeeModel { EmployeeId = 1, FirstName = "Robert", LastName = "Martin", Patronymic = "Cecil", Birthday = new DateTime(1952, 12, 5), EducationLevel = "Higher", EducationDegree = "Sc.D.", RegistrationDate = DateTime.Now}
+                new EmployeeModel { EmployeeId = 1, FirstName = "Robert", LastName = "Martin", Patronymic = "Cecil", Birthday = new DateTime(1952, 12, 5), EducationLevel = "Higher", EducationDegree = "Sc.D.", RegistrationDate = DateTime.Now }
+                );
+
+            db.EmployeeRecords.AddOrUpdate(x => x.EmployeeId,
+                new EmployeeRecordModel { EmployeeId = 1, RecordDate = new DateTime(2020, 3, 20, 14, 34, 0), Action = "Other", Description = "Ankle Bob Consulting inc.", Position = "Founder", ConfirmDocument = "Doc 1" }
                 );
 
             base.Seed(db);
