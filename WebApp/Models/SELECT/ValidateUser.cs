@@ -19,8 +19,6 @@ namespace WebApp.Models.SELECT
                     {
                         return true;
                     }
-
-                    return false;
                 }
             }
 
@@ -37,8 +35,6 @@ namespace WebApp.Models.SELECT
                     {
                         return true;
                     }
-
-                    return false;
                 }
             }
 

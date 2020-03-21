@@ -35,7 +35,7 @@
 
     function YearInitializer()
     {
-        for (var i = 1950; i < 2002; i++)
+        for (var i = 1950; i < 2003; i++)
         {
             $("#yearBirth").append($("<option />").val(i).text(i));
         }

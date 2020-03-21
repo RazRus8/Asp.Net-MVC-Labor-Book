@@ -6,12 +6,14 @@
     {
         for (var i = 1; i < 32; i++)
         {
-            var option = document.createElement("option");
-            var node = document.createTextNode(i);
-            var sel = document.getElementById("dayBirth");
+            //var option = document.createElement("option");
+            //var node = document.createTextNode(i);
+            //var sel = document.getElementById("dayBirth");
 
-            option.appendChild(node);
-            sel.appendChild(option);
+            //option.appendChild(node);
+            //sel.appendChild(option);
+
+            $("#dayBirth").append($("<option />").val(i).text(i));
         }
     }
 
@@ -32,24 +34,28 @@
             11: "December"
         };
 
-        var sel = document.getElementById("monthBirth");
+        //var sel = document.getElementById("monthBirth");
 
         for (var index in months)
         {
-            sel.options[sel.options.length] = new Option(months[index], index);
+            //sel.options[sel.options.length] = new Option(months[index], index);
+
+            $("#monthBirth").append($("<option />").val(index).text(months[index]));
         }
     }
 
     function YearInitializer()
     {
-        for (var i = 1950; i < 2002; i++)
+        for (var i = 1950; i < 2003; i++)
         {
-            var option = document.createElement("option");
-            var node = document.createTextNode(i);
-            var sel = document.getElementById("yearBirth");
+            //var option = document.createElement("option");
+            //var node = document.createTextNode(i);
+            //var sel = document.getElementById("yearBirth");
 
-            option.appendChild(node);
-            sel.appendChild(option);
+            //option.appendChild(node);
+            //sel.appendChild(option);
+
+            $("#yearBirth").append($("<option />").val(i).text(i));
         }
     }
 

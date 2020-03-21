@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApp.Models;
+using WebApp.Models.SELECT;
 using WebApp.Models.UPDATE;
 using WebApp.Models.DELETE;
 
@@ -13,16 +14,10 @@ namespace WebApp.Controllers
     {
         public ActionResult Index()
         {
-            EmployeeModel employee = new EmployeeModel();
+            int employeeId = Convert.ToInt32(Session["EmployeeId"]);
+            var employee = SelectInstance.SelectEmployee(employeeId);
 
-            int id = Convert.ToInt32(Session["EmployeeId"]);
-
-            using (EmployeeContext db = new EmployeeContext())
-            {
-                employee = db.Employees.Where(emp => emp.EmployeeId == id).First();
-
-                ViewBag.Employee = employee;
-            }
+            ViewBag.Employee = employee;
 
             return View("~/Views/EditEmployee/EditEmployee.cshtml");
         }

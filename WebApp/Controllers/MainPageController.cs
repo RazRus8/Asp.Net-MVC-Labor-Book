@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//using System.Data.Entity;
 using WebApp.Models;
 using WebApp.Models.SELECT;
 
@@ -20,34 +19,15 @@ namespace WebApp.Controllers
         [HttpPost]
         public JsonResult GetEmployees()
         {
-            List<EmployeeModel> employees = new List<EmployeeModel>();
+            var employees = SelectInstance.SelectEmployees();
 
-            using (EmployeeContext db = new EmployeeContext())
-            {
-                foreach (EmployeeModel employee in db.Employees)
-                {
-                    employees.Add(employee);
-                }
-
-                return Json(employees, JsonRequestBehavior.DenyGet);
-            }
+            return Json(employees, JsonRequestBehavior.DenyGet);
         }
 
         [HttpPost]
         public JsonResult GetRecords(int selectedEmployeeId)
         {
-            List<EmployeeRecordModel> records = new List<EmployeeRecordModel>();
-
-            using (EmployeeContext db = new EmployeeContext())
-            {
-                if (db.EmployeeRecords.Where(emp => emp.EmployeeId == selectedEmployeeId).Any())
-                {
-                    foreach (EmployeeRecordModel record in db.EmployeeRecords.Where(emp => emp.EmployeeId == selectedEmployeeId))
-                    {
-                        records.Add(record);
-                    }
-                }
-            }
+            var records = SelectInstance.SelectRecords(selectedEmployeeId);
 
             return Json(records, JsonRequestBehavior.DenyGet);
         }
@@ -55,16 +35,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public JsonResult GetFieldsData(int selectedRecordId)
         {
-            List<EmployeeRecordModel> records = new List<EmployeeRecordModel>();
-
-            using (EmployeeContext db = new EmployeeContext())
-            {
-                if (db.EmployeeRecords.Where(rec => rec.RecordId == selectedRecordId).Any())
-                {
-                    var record = db.EmployeeRecords.Where(rec => rec.RecordId == selectedRecordId).First();
-                    records.Add(record);
-                }
-            }
+            var records = SelectInstance.FillFields(selectedRecordId);
 
             return Json(records, JsonRequestBehavior.DenyGet);
         }

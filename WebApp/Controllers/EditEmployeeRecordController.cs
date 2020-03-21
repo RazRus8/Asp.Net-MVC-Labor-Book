@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApp.Models;
+using WebApp.Models.SELECT;
 using WebApp.Models.UPDATE;
 using WebApp.Models.DELETE;
 
@@ -16,14 +17,11 @@ namespace WebApp.Controllers
             int employeeId = Convert.ToInt32(Session["EmployeeId"]);
             int recordId = Convert.ToInt32(Session["EmployeeRecordId"]);
 
-            using (EmployeeContext db = new EmployeeContext())
-            {
-                var employee = db.Employees.Where(emp => emp.EmployeeId == employeeId).First();
-                var employeeRecord = db.EmployeeRecords.Where(rec => rec.RecordId == recordId).First();
+            var employee = SelectInstance.SelectEmployee(employeeId);
+            var employeeRecord = SelectInstance.SelectRecord(recordId);
 
-                ViewBag.Employee = employee;
-                ViewBag.EmployeeRecord = employeeRecord;
-            }
+            ViewBag.Employee = employee;
+            ViewBag.EmployeeRecord = employeeRecord;
 
             return View("~/Views/EditEmployeeRecord/EditEmployeeRecord.cshtml");
         }

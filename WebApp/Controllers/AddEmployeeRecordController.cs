@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using WebApp.Models;
+using WebApp.Models.SELECT;
 using WebApp.Models.INSERT;
 
 namespace WebApp.Controllers
@@ -13,17 +14,11 @@ namespace WebApp.Controllers
     {
         public ActionResult Index()
         {
-            EmployeeModel employee = new EmployeeModel();
+            int employeeId = Convert.ToInt32(Session["EmployeeId"]);
+            var employee = SelectInstance.SelectEmployee(employeeId);
 
-            int id = Convert.ToInt32(Session["EmployeeId"]);
-
-            using (EmployeeContext db = new EmployeeContext())
-            {
-                employee = db.Employees.Where(emp => emp.EmployeeId == id).First();
-
-                ViewBag.Data = $"{employee.DisplayEmployees}";
-                ViewBag.Id = Session["EmployeeId"];
-            }
+            ViewBag.Data = $"{employee.DisplayEmployees}";
+            ViewBag.Id = Session["EmployeeId"];
 
             return View("~/Views/AddEmployeeRecord/EmployeeRecord.cshtml");
         }
