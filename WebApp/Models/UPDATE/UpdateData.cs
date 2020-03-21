@@ -23,8 +23,33 @@ namespace WebApp.Models.UPDATE
                     employee.Birthday = editEmployee.Birthday;
                     employee.EducationLevel = editEmployee.EducationLevel;
                     employee.EducationDegree = editEmployee.EducationDegree;
+                    employee.RegistrationDate = editEmployee.RegistrationDate;
 
                     db.Entry(employee).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+        public static bool UpdateEmployeeRecord(EmployeeRecordModel editEmployeeRecord)
+        {
+            using (EmployeeContext db = new EmployeeContext())
+            {
+                var employeeRecord = db.EmployeeRecords.Where(rec => rec.RecordId == editEmployeeRecord.RecordId).First();
+
+                if (employeeRecord != null)
+                {
+                    employeeRecord.RecordDate = editEmployeeRecord.RecordDate;
+                    employeeRecord.Action = editEmployeeRecord.Action;
+                    employeeRecord.Description = editEmployeeRecord.Description;
+                    employeeRecord.Position = editEmployeeRecord.Position;
+                    employeeRecord.ConfirmDocument = editEmployeeRecord.ConfirmDocument;
+
+                    db.Entry(employeeRecord).State = EntityState.Modified;
                     db.SaveChanges();
 
                     return true;

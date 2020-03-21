@@ -129,7 +129,6 @@
         $("#buttonDelete").click(function ()
         {
             DeleteRequest();
-            //alert("Work in progress!");
         });
     })
 }());

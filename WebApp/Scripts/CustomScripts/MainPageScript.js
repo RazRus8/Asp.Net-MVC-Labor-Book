@@ -204,7 +204,38 @@
 
     function EditRecord()
     {
-        alert("Work in progress!");
+        if ($("#recordSelect").val() != 0)
+        {
+            var record = {
+                employeeId: $("#employeeSelect").val(),
+                recordId: $("#recordSelect").val()
+            };
+
+            $.ajax({
+                type: "post",
+                url: "/EditEmployeeRecord/Res",
+                data: JSON.stringify(record),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data)
+                {
+                    if (data.success)
+                    {
+                        window.location.href = "/EditEmployeeRecord/Index/";
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError)
+                {
+                    alert(xhr.status);
+                    alert(xhr.responseText);
+                    alert(thrownError);
+                }
+            });
+        }
+        else
+        {
+            alert("You should select record to edit");
+        }
     }
 
     $(document).ready(function ()

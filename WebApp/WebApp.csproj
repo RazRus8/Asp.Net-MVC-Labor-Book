@@ -137,6 +137,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CustomScripts\EditEmployeeRecordScript.js" />
     <Content Include="Scripts\CustomScripts\EditEmployeeScript.js" />
     <Content Include="Scripts\CustomScripts\EmployeeScript.js" />
     <Content Include="Scripts\CustomScripts\MainPageScript.js" />
@@ -246,6 +247,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddEmployeeRecordController.cs" />
+    <Compile Include="Controllers\EditEmployeeRecordController.cs" />
     <Compile Include="Controllers\EditEmployeeController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\SigninController.cs" />
@@ -283,6 +285,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\EditEmployee\EditEmployee.cshtml" />
+    <Content Include="Views\EditEmployeeRecord\EditEmployeeRecord.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

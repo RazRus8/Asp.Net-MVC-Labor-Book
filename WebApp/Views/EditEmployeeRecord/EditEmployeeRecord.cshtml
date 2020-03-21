@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit record</title>
+    <link href="~/Content/CustomStyles.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/CustomScripts/EditEmployeeRecordScript.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function ()
+        {
+            $("#actionEmp").val("@ViewBag.EmployeeRecord.Action").attr("selected");
+            $("#description").text("@ViewBag.EmployeeRecord.Description");
+            $("#position").text("@ViewBag.EmployeeRecord.Position");
+            $("#confirmDocument").text("@ViewBag.EmployeeRecord.ConfirmDocument");
+        });
+    </script>
+</head>
+<body>
+    <div class="d-flex align-items-center min-vh-100">
+        <div class="container mb-5">
+            <div class="card mx-auto pr-lg-3 pl-lg-3 col-lg-7 col-sm-12 pr-sm-0 pl-sm-0" id="card-body">
+                <div class="card-body">
+                    <div class="text-center text-white">
+                        <h2 class="mt-3 mb-3">Add new record for:</h2>
+                        <h4>@ViewBag.Employee.DisplayEmployees</h4>
+                        <div id="employeeRecordId" hidden>@ViewBag.EmployeeRecord.RecordId</div>
+                    </div>
+                    <div class="col-lg-12 order-md-1 text-white">
+                        <h4>Fill the forms below</h4>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="ActionEmp">Choose an action</label>
+                                    <select class="custom-select d-block w-100" id="actionEmp" required>
+                                        <option value="0">Action</option>
+                                        <option value="Hire">Hire</option>
+                                        <option value="Promotion">Promotion</option>
+                                        <option value="Transfered">Transfered</option>
+                                        <option value="Dismissal">Dismissal</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please choose an action.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="Description">Description (Company)</label>
+                                    <textarea class="form-control" id="description"></textarea>
+                                    <div class="invalid-feedback">Valid description is required.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="Position">Position</label>
+                                    <textarea class="form-control" id="position"></textarea>
+                                    <div class="invalid-feedback">Valid position is required.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="ConfirmDocument">Confirm Document</label>
+                                    <textarea class="form-control" id="confirmDocument"></textarea>
+                                    <div class="invalid-feedback">Valid confirm document is required.</div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <button class="btn btn-primary mr-4 mt-2" type="button" id="buttonOk">OK</button>
+                                    <a class="btn btn-primary mr-4 mt-2" onclick="location = 'http://localhost:52482/MainPage/Index';" role="button" id="buttonCancel">Cancel</a>
+                                    <button class="btn btn-primary mr-4 mt-2" type="button" id="buttonDelete">Delete record</button>
+                                </div>
+                            </div>
+                            <div class="mt-5 text-center">
+                                <a class="text-muted ">© 2020</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
