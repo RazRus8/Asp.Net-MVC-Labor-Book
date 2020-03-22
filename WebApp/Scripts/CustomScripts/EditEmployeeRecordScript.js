@@ -4,7 +4,7 @@
 
     function EditRequest()
     {
-        if ($("#actionEmp").val() != 0)
+        if ($("#actionEmp").val() != 0 && $("#description").val() != "" && $("#position").val() != "" && $("#confirmDocument").val() != "")
         {
             var editRecord = {
                 recordId: $("#employeeRecordId").text(),
@@ -35,6 +35,10 @@
                     alert(thrownError);
                 }
             });
+        }
+        else
+        {
+            alert("All fields are required to fill.");
         }
     }
 

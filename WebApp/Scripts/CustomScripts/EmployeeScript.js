@@ -61,40 +61,47 @@
 
     function SendRequest()
     {
-        var day = $("#dayBirth option:selected").val();
-        var month = $("#monthBirth option:selected").val();
-        var year = $("#yearBirth option:selected").val();
+        if ($("#firstName").val() != "" && $("#lastName").val() != "" && $("#dayBirth").val() != "empty" && $("#monthBirth").val() != "empty" && $("#yearBirth").val() != "empty" && $("#educationLevel").val() != 0)
+        {
+            var day = $("#dayBirth option:selected").val();
+            var month = $("#monthBirth option:selected").val();
+            var year = $("#yearBirth option:selected").val();
 
-        var newEmployee = {
-            firstname: $("#firstName").val(),
-            lastname: $("#lastName").val(),
-            patronymic: $("#patronymic").val(),
-            birthday: new Date(year, month, day),
-            educationLevel: $("#educationLevel option:selected").text(),
-            educationDegree: $("#educationDegree").val(),
-            registrationDate: new Date()
-        };
+            var newEmployee = {
+                firstname: $("#firstName").val(),
+                lastname: $("#lastName").val(),
+                patronymic: $("#patronymic").val(),
+                birthday: new Date(year, month, day),
+                educationLevel: $("#educationLevel option:selected").text(),
+                educationDegree: $("#educationDegree").val(),
+                registrationDate: new Date()
+            };
 
-        $.ajax({
-            type: "post",
-            url: "/AddEmployee/InsertEmployee",
-            data: JSON.stringify(newEmployee),
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function (response)
-            {
-                if (response.success)
+            $.ajax({
+                type: "post",
+                url: "/AddEmployee/InsertEmployee",
+                data: JSON.stringify(newEmployee),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (response)
                 {
-                    window.location.href = "/MainPage/Index";
+                    if (response.success)
+                    {
+                        window.location.href = "/MainPage/Index";
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError)
+                {
+                    alert(xhr.status);
+                    alert(xhr.responseText);
+                    alert(thrownError);
                 }
-            },
-            error: function (xhr, ajaxOptions, thrownError)
-            {
-                alert(xhr.status);
-                alert(xhr.responseText);
-                alert(thrownError);
-            }
-        });
+            });
+        }
+        else
+        {
+            alert("First name, last name, birthday, education are required to fill.");
+        }
     }
 
     function SetFocus()
