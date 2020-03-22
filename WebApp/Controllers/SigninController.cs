@@ -12,7 +12,6 @@ namespace WebApp.Controllers
 {
     public class SigninController : Controller
     {
-        [HttpGet]
         public ActionResult Index()
         {
             return View("~/Views/Signin/SigninPage.cshtml");

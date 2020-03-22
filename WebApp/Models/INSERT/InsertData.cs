@@ -7,7 +7,7 @@ using WebApp.Models;
 
 namespace WebApp.Models.INSERT
 {
-    public class InsdertData
+    public class InsertData
     {
         public static bool InsertEmployee(EmployeeModel newEmployee)
         {

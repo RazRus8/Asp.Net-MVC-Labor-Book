@@ -19,7 +19,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult InsertEmployee(EmployeeModel newEmployee)
         {
-            if (InsdertData.InsertEmployee(newEmployee))
+            if (InsertData.InsertEmployee(newEmployee))
             {
                 return Json(new { success = true }, JsonRequestBehavior.DenyGet);
             }

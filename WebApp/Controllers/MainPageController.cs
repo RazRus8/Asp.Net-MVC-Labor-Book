@@ -10,7 +10,6 @@ namespace WebApp.Controllers
 {
     public class MainPageController : Controller
     {
-        [HttpGet]
         public ActionResult Index()
         {
             return View("~/Views/MainPage/MainPage.cshtml");
