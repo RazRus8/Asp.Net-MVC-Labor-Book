@@ -35,7 +35,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public JsonResult InsertRecord(EmployeeRecordModel newRecord)
         {
-            if (InsdertData.InsertRecord(newRecord))
+            if (InsertData.InsertRecord(newRecord))
             {
                 return Json(new { success = true }, JsonRequestBehavior.DenyGet);
             }
