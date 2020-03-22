@@ -259,7 +259,7 @@
     <Compile Include="Models\EmployeeContext.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\EmployeeRecordModel.cs" />
-    <Compile Include="Models\INSERT\InsdertData.cs" />
+    <Compile Include="Models\INSERT\InsertData.cs" />
     <Compile Include="Models\SELECT\SelectInstance.cs" />
     <Compile Include="Models\SELECT\ValidateUser.cs" />
     <Compile Include="Models\SigninUserModel.cs" />
