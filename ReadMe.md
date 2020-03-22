@@ -1,10 +1,10 @@
 # Asp .Net MVC Application Labor Book
 # <sub>The following technologies are used in this application:<sub>
-1. ASP .Net MVC Framework
-2. Entity Framework
+1. ASP .Net MVC Framework v4.7.2
+2. Entity Framework v6.4.0
 3. HTML/CSS/JavaScript
-4. JQuery
-5. BootStrap
+4. JQuery v3.4.1
+5. BootStrap v4.4.1
 
 # <sub>How to use this application:<sub>
   **Step 1. Launch the application. Enter the following data on the login page:**
