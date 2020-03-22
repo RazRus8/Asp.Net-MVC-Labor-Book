@@ -20,7 +20,7 @@ namespace WebApp.Models.DBInitializer
                 );
 
             db.EmployeeRecords.AddOrUpdate(x => x.EmployeeId,
-                new EmployeeRecordModel { EmployeeId = 1, RecordDate = new DateTime(2020, 3, 20, 14, 34, 0), Action = "Other", Description = "Ankle Bob Consulting inc.", Position = "Founder", ConfirmDocument = "Doc 1" }
+                new EmployeeRecordModel { EmployeeId = 1, RecordDate = new DateTime(2000, 3, 20, 14, 34, 0), Action = "Other", Description = "Uncle Bob Consulting LLC", Position = "Founder", ConfirmDocument = "Document #1" }
                 );
 
             base.Seed(db);
